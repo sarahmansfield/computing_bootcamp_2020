@@ -38,12 +38,12 @@ for the variables in `gap`?
 
 Variable | Type
 ---------|----------
-Var 1    |
-Var 2    |
-Var 3    |
-Var 4    |
-Var 5    |
-Var 6    |
+country  | character
+continent| character
+year     | double
+lifeExp  | double
+pop      | double
+gdpPercap| double
 
 ### Exercise 2
 
@@ -65,7 +65,12 @@ Create a plot of life expectancy verses GDP per capita for Canada. Set the
 color of the points to be red and connect them with a solid black line.
 
 ```{r ex2_part2}
-# create plot here
+gap_canada <- gap %>% 
+  filter(country == "Canada")
+
+ggplot(data = gap_canada, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(color="red") +
+   geom_line(color="black")
 ```
 
 **Part 3**
@@ -74,7 +79,11 @@ Create a scatter plot of life expectancy versus GDP per capita based on all
 countries in Africa in 1992. Set the color to be purple.
 
 ```{r ex2_part3}
-# create plot here
+gap_africa <- gap %>% 
+  filter(continent == "Africa", year == 1992)
+
+ggplot(data = gap_africa, mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(color="purple")
 ```
 
 ### Exercise 3
