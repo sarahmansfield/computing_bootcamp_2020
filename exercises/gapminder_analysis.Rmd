@@ -106,7 +106,11 @@ two continents.
    be set for each level of the variable `continent`.
 
 ```{r ex3_part1}
-# create plot here
+gap_africaeurope1992 <- gap %>% 
+  filter(continent %in% c("Africa", "Europe"), year == 1992)
+
+ggplot(data = gap_africaeurope1992, mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  geom_point()
 ```
 
 **Part 2**
@@ -123,7 +127,11 @@ Fill the boxplots with color `darkgreen`.
 3. Use `geom_boxplot()` and set the fill to `darkgreen`.
 
 ```{r ex3_part2}
-# create plot here
+gap_2007 <- gap %>%
+   filter(year == 2007)
+
+ggplot(data = gap_2007, mapping = aes(x = continent, y = gdpPercap)) +
+  geom_boxplot(fill="darkgreen")
 ```
 
 
